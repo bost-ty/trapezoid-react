@@ -1,25 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./assets/normalize.css";
+import "./App.css";
+
+import { FaGithub, FaQuestionCircle } from "react-icons/fa";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
     </div>
+  );
+}
+
+function Header() {
+  return (
+    <header>
+      <h1>trapezoid.jsx</h1>
+      <p>a small app for calculating trapezoids</p>
+      <ul>
+        <li>
+          <a href="https://github.com/bost-ty/trapezoid-react">
+            <FaGithub />
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/bost-ty/trapezoid-react/ABOUT.md">
+            <FaQuestionCircle />
+          </a>
+        </li>
+      </ul>
+    </header>
   );
 }
 

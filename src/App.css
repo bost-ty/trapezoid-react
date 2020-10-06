@@ -1,38 +1,108 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --champagne-pink: #eddcd2ff;
+  --linen: #fff1e6ff;
+  --pale-pink: #fde2e4ff;
+  --mimi-pink: #fad2e1ff;
+  --powder-blue: #c5deddff;
+  --mint-cream: #dbe7e4ff;
+  --isabelline: #f0efebff;
+  --beau-blue: #bcd4e6ff;
+
+  --text-dark: #222222;
+  --text-light: #444444;
+}
+
 .App {
+  padding: 2.5rem;
+  background: var(--beau-blue);
+  color: var(--dark-a);
+  line-height: 1.5;
+}
+
+/* start links */
+a {
+  outline: none;
+  text-decoration: none;
+  border: 1px solid rgba(0, 0, 0, 0);
+  display: flex;
+}
+
+a:link {
+  color: var(--text-light);
+}
+
+a:visited {
+  color: var(--pale-pink);
+}
+
+a:focus {
+  border-bottom: 1px solid;
+  outline: 1px dotted var(--text-light);
+  background: var(--isabelline);
+  color: var(--text-dark);
+}
+
+a:hover {
+  border-bottom: 1px solid;
+  background: var(--isabelline);
+  color: var(--text-dark);
+}
+
+a:active {
+  background: var(--text-dark);
+  color: var(--isabelline);
+}
+/* end links */
+
+/* begin header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+  gap: 0.4rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 2.4rem;
+  line-height: 1.2;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+header p {
+  font-size: 1.2rem;
+  line-height: 1;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header ul {
   display: flex;
-  flex-direction: column;
+  flex-flow: row nowrap;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 0.2rem;
+  margin: 0;
+  padding: 0;
+}
+header li {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.App-link {
-  color: #61dafb;
+header a {
+  font-size: 2.4rem;
+  padding: 0.25em;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* end header */
