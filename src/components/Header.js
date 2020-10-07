@@ -1,7 +1,7 @@
 import React from "react";
 import { FaGithub, FaQuestionCircle } from "react-icons/fa";
 
-export default function Header() {
+export default function Header({ toggleHidden }) {
   return (
     <header>
       <h1>trapezoid.jsx</h1>
@@ -13,7 +13,7 @@ export default function Header() {
           </a>
         </li>
         <li>
-          <a href="#about">
+          <a href="#about" onClick={toggleHidden}>
             <FaQuestionCircle />
           </a>
         </li>

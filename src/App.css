@@ -35,6 +35,12 @@
   max-height: 100vh;
 }
 
+.hidden {
+  opacity: 0;
+  display: none;
+  color: red;
+}
+
 .App {
   background: var(--blue-light);
   color: var(--dark-a);
@@ -279,11 +285,6 @@ button:active {
 #about {
   background: var(--blue-dark);
   padding-bottom: 2rem;
-}
-
-#about p {
-  margin: 0.5rem auto;
-  max-width: 60ch;
 }
 /* end About */
 
