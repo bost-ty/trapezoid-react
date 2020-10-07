@@ -74,7 +74,7 @@ a:hover {
 }
 
 a:active {
-  outline: none;
+  outline: 0 none;
   background: var(--brand);
   color: var(--text-light);
   transform: translateY(2px);
@@ -89,14 +89,28 @@ h3 {
   padding: 0.25em;
 }
 /* end typography */
+/* begin layout */
+article {
+  padding: 1rem;
+}
+
+article p {
+  max-width: 45ch;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+/* end layout */
+
 /* end general styling */
 
 /* begin specific styling */
 /* begin Header */
 
-.fa-calc {
+.fa-calc,
+.fa-reset {
   font-size: 2rem;
 }
+
 header {
   display: flex;
   align-items: center;
@@ -146,35 +160,85 @@ form {
   padding: 1rem;
 }
 
+form > * > * {
+  max-width: 30vw;
+  text-align: center;
+}
+
 label,
+select,
 input,
 button {
   display: block;
+  text-align: center;
 }
 
 label {
   margin-top: 0.5rem;
+  color: var(--text-light);
 }
 
+/* ** begin select */
+select {
+  margin-bottom: 1rem;
+  border: none;
+  border-bottom: 2px solid rgba(var(--rgb-brand), 1);
+  padding: 0.25em 0.25em 0.25em 0.15em;
+  background: var(--blue-light);
+  outline: none;
+  transition: all 100ms ease-out;
+}
+
+select:focus {
+  outline: 1px dashed var(--text-light);
+  background: rgba(var(--rgb-brand), 0.5);
+}
+
+select:active {
+  background: rgba(var(--rgb-brand), 0.5);
+}
+/* ** end select */
+
 /* ** begin input */
+/* begin hide the number spinners */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+/* end hide the number spinners */
+
 input {
   margin-bottom: 1rem;
-  border: 1px solid rgba(var(--rgb-brand), 1);
-  border-radius: 2px;
-  padding-left: 5px;
-  background: rgba(var(--rgb-brand), 0.5);
+  border: none;
+  border-bottom: 2px solid rgba(var(--rgb-brand), 1);
+  padding: 0.25em 0.25em 0.25em 0.15em;
+  background: var(--blue-light);
   outline: none;
   min-width: 0;
+  transition: all 100ms ease-out;
 }
 
 input:focus {
-  border: 1px solid var(--text-light);
-  background: var(--blue-light);
+  outline: 1px dashed var(--text-light);
+  background: rgba(var(--rgb-brand), 0.5);
+}
+
+input:active {
+  background: rgba(var(--rgb-brand), 0.5);
+  transform: scale(1.01);
 }
 /* ** end input */
 /* ** begin button */
 button {
   display: flex;
+  align-items: center;
+  justify-content: center;
   outline: none;
   text-decoration: none;
   border-radius: 0.5em;
@@ -194,6 +258,7 @@ button:focus {
 }
 
 button:hover {
+  outline: 0 none;
   border-bottom: 2px solid;
   background: var(--blue-light);
   color: var(--text-light);
@@ -211,3 +276,10 @@ button:active {
 /* end Calculator */
 
 /* end specific styling */
+
+/* handle an unexpectedly narrow viewport */
+@media screen and (max-width: 350px) {
+  :root {
+    font-size: 14px;
+  }
+}

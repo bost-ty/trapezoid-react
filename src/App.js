@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import "./assets/normalize.css";
 import "./App.css";
 
-import { FaCalculator, FaGithub, FaQuestionCircle } from "react-icons/fa";
+import Calculator from "./Calculator";
+import { FaGithub, FaQuestionCircle } from "react-icons/fa";
 
 function App() {
   return (
@@ -35,53 +36,11 @@ function Header() {
   );
 }
 
-function Calculator() {
-  const [longBase, setLongBase] = useState(0);
-  const [shortBase, setShortBase] = useState(0);
-
-  return (
-    <div>
-      <form onSubmit={handleSubmit} onChange={handleSubmit}>
-        <label>
-          Long base:
-          <input
-            type="text"
-            name="longBase"
-            value={longBase}
-            onChange={(e) => setLongBase(e.target.value)}
-          />
-        </label>
-        <label>
-          Short base:
-          <input
-            type="text"
-            name="shortBase"
-            value={shortBase}
-            onChange={(e) => setShortBase(e.target.value)}
-          />
-        </label>
-        <button type="submit" name="submit">
-          <FaCalculator className="fa-calc" />
-        </button>
-      </form>
-    </div>
-  );
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    handleFormChange(e);
-  }
-
-  function handleFormChange(e) {
-    console.log("Form change" + " " + e.target.name);
-  }
-}
-
 function About() {
   return (
-    <div id="about">
+    <article id="about">
       <h2>About</h2>
-    </div>
+    </article>
   );
 }
 
