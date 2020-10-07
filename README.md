@@ -1,10 +1,6 @@
 # trapezoid-react 🍟
----
 
 >Bootstrapped with `create-react-app`. To run locally, clone this repository, `cd` into the root directory, and run `npm start`.
-
----
-
 
 ### About `trapezoid-react`
 
