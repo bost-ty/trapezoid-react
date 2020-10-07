@@ -34,8 +34,8 @@
 .hidden {
   opacity: 0;
   z-index: -9999;
-  visibility: none;
-  transition: all 100ms ease-out;
+  visibility: hidden;
+  transition: all 100ms ease;
 }
 
 .App {
@@ -91,15 +91,14 @@ a:active {
 h1,
 h2,
 h3 {
-  font-family: "Roboto Mono", source-code-pro, Menlo, Monaco, Consolas,
-    "Courier New", monospace;
+  font-family: "Roboto Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
   padding: 0.25em;
 }
 /* end typography */
 /* begin layout */
 
 article p {
-  max-width: 60ch;
+  max-width: 70ch;
   margin: 0 auto;
   line-height: 1.5;
 }
@@ -109,12 +108,6 @@ article p {
 
 /* begin specific styling */
 /* begin Header */
-
-.fa-calc,
-.fa-reset {
-  font-size: 2rem;
-}
-
 header {
   display: flex;
   align-items: center;
@@ -124,7 +117,9 @@ header {
   padding: 1rem;
   background: var(--blue-dark);
   width: 100%;
+  box-shadow: 0 4px 6px -1px rgba(143, 107, 107, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.05);
 }
+
 header h1 {
   font-size: clamp(1rem, 2.2rem * 3vh, 6rem);
   margin: 0;
@@ -157,20 +152,16 @@ header a {
 /* begin Calculator */
 
 #calculator {
-  margin-top: 2rem;
+  padding-top: 1rem;
+  font-size: 110%;
 }
 /* * begin form */
 form {
   display: flex;
   flex-flow: column nowrap;
+  flex-shrink: 1;
   align-items: center;
   justify-content: center;
-  /* padding: 1rem; */
-}
-
-form > * > * {
-  max-width: 30vw;
-  text-align: center;
 }
 
 label,
@@ -183,7 +174,7 @@ button {
 
 label {
   margin-top: 0.5rem;
-  color: var(--text-light);
+  color: var(--text-dark);
 }
 
 /* ** begin select */
@@ -214,9 +205,8 @@ select:active {
   outline-offset: -4px;
 }
 /* ** end select */
-
 /* ** begin input */
-/* begin hide the number spinners */
+/* *** begin hide the number spinners */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -224,12 +214,10 @@ input[type="number"]::-webkit-outer-spin-button {
   appearance: none;
   margin: 0;
 }
-/* end hide the number spinners */
-
+/* *** end hide the number spinners */
 input[type="number"] {
   -moz-appearance: textfield;
-  font-family: "Roboto Mono", source-code-pro, Menlo, Monaco, Consolas,
-    "Courier New", monospace;
+  font-family: "Roboto Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
   border-top-left-radius: 0.5em;
   border-top-right-radius: 0.5em;
 }
@@ -237,6 +225,7 @@ input[type="number"] {
 input {
   margin-bottom: 1rem;
   border: none;
+  color: var(--text-light);
   border-bottom: 2px solid rgba(var(--rgb-brand), 0.5);
   padding: 0.25em 0.25em 0.25em 0.15em;
   background: var(--blue-light);
@@ -266,7 +255,25 @@ input:active {
   outline-offset: -4px;
 }
 /* ** end input */
-/* ** begin button */
+/* ** begin form controls */
+.form-control-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 1rem;
+  min-width: 20vw;
+  background: var(--blue-dark);
+  padding: 1rem;
+  border-radius: 5em;
+  box-shadow: inset 0 4px 6px -1px rgba(0, 0, 0, 0.1), inset 0 2px 4px -1px rgba(0, 0, 0, 0);
+}
+
+.form-control {
+  font-size: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+/* ** end form controls */
+/* *** begin button */
 button {
   display: flex;
   align-items: center;
@@ -304,20 +311,8 @@ button:active {
   color: var(--text-light);
   transform: translateY(2px);
 }
-/* ** end button */
+/* *** end button */
 /* * end form */
-
-.results {
-  margin: 2rem;
-  font-size: 110%;
-  line-height: 1.4;
-}
-
-.results span {
-  font-family: "Roboto Mono", source-code-pro, Menlo, Monaco, Consolas,
-    "Courier New", monospace;
-  font-weight: 600;
-}
 /* end Calculator */
 /* begin About */
 #about {
@@ -326,24 +321,24 @@ button:active {
   background: var(--brand);
   transition: all 100ms ease-out;
   border-radius: 2rem;
-  min-width: 300px;
+  width: clamp(80vw, 50ch * 4vw, 70ch);
+  min-width: 80vw;
   position: absolute;
   left: 50%;
   top: 25%;
   transform: translateX(-50%);
-
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  visibility: visible;
+  margin: 0;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 #about h2 {
   margin-bottom: 0.25em;
 }
 /* end About */
-
 /* end specific styling */
 
-/* handle an unexpectedly narrow viewport */
+/* handle narrow viewport cases */
 @media screen and (max-width: 350px) {
   :root {
     font-size: 14px;

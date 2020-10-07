@@ -7,8 +7,8 @@ function Result({ number, units }) {
 }
 
 export default function Calculator() {
-  const initialUnits = "in";
-  const [units, setUnits] = useState(initialUnits);
+  // const initialUnits = "in";
+  // const [units, setUnits] = useState(initialUnits);
 
   const initialLongBase = 3;
   const [longBase, setLongBase] = useState(initialLongBase);
@@ -26,27 +26,13 @@ export default function Calculator() {
 
   function calculateLegLength() {
     const newBase = longBase - shortBase;
-    const newLegLength = Math.sqrt(
-      Math.pow(newBase, 2) + Math.pow(desiredHeight, 2)
-    );
-    setLegLength(newLegLength);
+    const newLegLength = Math.sqrt(Math.pow(newBase, 2) + Math.pow(desiredHeight, 2));
+    setLegLength(Math.round((newLegLength + Number.EPSILON) * 100) / 100);
   }
 
   return (
     <article id="calculator">
       <form onSubmit={handleSubmit} onChange={handleFormChange}>
-        <label htmlFor="units">Units:</label>
-        <select
-          id="units"
-          name="units"
-          value={units}
-          onChange={(e) => setUnits(e.target.value)}
-        >
-          <option defaultValue value="in">
-            inches
-          </option>
-          <option value="cm">centimeters</option>
-        </select>
         <label htmlFor="longBase">Long base:</label>
         <input
           type="number"
@@ -87,23 +73,12 @@ export default function Calculator() {
           value={legLength}
           onChange={(e) => setLegLength(e.target.value)}
         />
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-evenly",
-            gap: "1rem",
-            minWidth: 200,
-            background: "var(--blue-dark)",
-            padding: "1rem",
-            borderRadius: ".5em",
-          }}
-        >
-          <button type="submit" name="submit" onClick={handleSubmit}>
-            <FaCalculator className="fa-calc" />
+        <div className="form-control-container">
+          <button type="submit" className="form-control" name="submit" onClick={handleSubmit}>
+            <FaCalculator />
           </button>
-          <button name="reset" onClick={handleReset}>
-            <FaUndoAlt className="fa-reset" />
+          <button name="reset" className="form-control" onClick={handleReset}>
+            <FaUndoAlt />
           </button>
         </div>
       </form>
