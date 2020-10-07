@@ -9,10 +9,10 @@ export default function About({ showAbout }) {
     >
       <h2>About</h2>
       <p>
-        This project is a continuation of a Python3 program{" "}
-        <code>trapezoid.py</code> that was converted into a vanilla JavaScript
-        file <code>trapezoid.js</code>, and has now been converted again into{" "}
-        <code>trapezoid-react</code>.
+        This project is a continuation of a Python program written for a
+        woodworking project. It has been converted to{" "}
+        <a href="https://github.com/bost-ty/trapezoid">vanilla JavaScript</a>{" "}
+        already. This is the newest version, <code>trapezoid-react</code>.
       </p>
     </article>
   );
