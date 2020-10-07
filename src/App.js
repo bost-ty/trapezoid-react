@@ -12,13 +12,16 @@ function App() {
     setShowAbout(!showAbout);
   }
   return (
-    <div className="App">
+    <div className="App" onClick={handleClick}>
       <Header toggleHidden={toggleHidden} />
       <Calculator />
-      <p>{showAbout ? "true" : "false"}</p>
       {<About showAbout={showAbout} />}
     </div>
   );
+
+  function handleClick(e) {
+    console.log(e.target.value);
+  }
 }
 
 export default App;
