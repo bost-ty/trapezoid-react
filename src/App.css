@@ -37,8 +37,6 @@
 
 .hidden {
   opacity: 0;
-  display: none;
-  color: red;
 }
 
 .App {
@@ -284,7 +282,8 @@ button:active {
 /* begin About */
 #about {
   background: var(--blue-dark);
-  padding-bottom: 2rem;
+  /* padding-bottom: 2rem; */
+  transition: all 100ms ease-out;
 }
 /* end About */
 
