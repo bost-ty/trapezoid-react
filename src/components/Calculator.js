@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaCalculator, FaUndoAlt } from "react-icons/fa";
 
+// eslint-disable-next-line
 function Result({ number, units }) {
   return <span>{` ${number} ${units} `}</span>;
 }
@@ -9,7 +10,7 @@ export default function Calculator() {
   const initialUnits = "in";
   const [units, setUnits] = useState(initialUnits);
 
-  const initialLongBase = 6;
+  const initialLongBase = 3;
   const [longBase, setLongBase] = useState(initialLongBase);
 
   const initialShortBase = 3;
@@ -18,8 +19,10 @@ export default function Calculator() {
   const initialDesiredHeight = 2;
   const [desiredHeight, setDesiredHeight] = useState(initialDesiredHeight);
 
-  const initialLegLength = 0;
+  const initialLegLength = 2;
   const [legLength, setLegLength] = useState(initialLegLength);
+
+  useEffect(calculateLegLength, [longBase, shortBase, desiredHeight]);
 
   function calculateLegLength() {
     const newBase = longBase - shortBase;
@@ -28,8 +31,6 @@ export default function Calculator() {
     );
     setLegLength(newLegLength);
   }
-
-  useEffect(calculateLegLength, [longBase, shortBase, desiredHeight]);
 
   return (
     <article id="calculator">
@@ -76,6 +77,16 @@ export default function Calculator() {
           value={desiredHeight}
           onChange={(e) => setDesiredHeight(e.target.value)}
         />
+        <label htmlFor="legLength">Leg length:</label>
+        <input
+          type="number"
+          step=".01"
+          min=".01"
+          id="legLength"
+          name="legLength"
+          value={legLength}
+          onChange={(e) => setLegLength(e.target.value)}
+        />
         <div
           style={{
             display: "flex",
@@ -96,7 +107,7 @@ export default function Calculator() {
           </button>
         </div>
       </form>
-      <div className="results">
+      {/* <div className="results">
         <p>
           A trapezoid with bases of <Result number={shortBase} units={units} />
           and <Result number={longBase} units={units} />
@@ -105,7 +116,7 @@ export default function Calculator() {
           <Result number={legLength} units={units} />
           long.
         </p>
-      </div>
+      </div> */}
     </article>
   );
 
@@ -115,7 +126,7 @@ export default function Calculator() {
   }
 
   function handleFormChange(e) {
-    calculateLegLength();
+    if (legLength !== 0) calculateLegLength();
   }
 
   function handleReset() {
