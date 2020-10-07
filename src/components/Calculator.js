@@ -73,7 +73,12 @@ export default function Calculator() {
           style={{
             display: "flex",
             alignItems: "center",
+            justifyContent: "space-evenly",
             gap: "1rem",
+            minWidth: 200,
+            background: "var(--blue-dark)",
+            padding: "1rem",
+            borderRadius: ".5em",
           }}
         >
           <button type="submit" name="submit" onClick={handleSubmit}>
@@ -84,8 +89,8 @@ export default function Calculator() {
           </button>
         </div>
       </form>
-      <div>
-        <p className="results">
+      <div className="results">
+        <p>
           A trapezoid with bases of {longBase} {units} and {shortBase} {units}{" "}
           with a desired height of {desiredHeight} {units} will have legs that
           are {legLength} {units} long.
