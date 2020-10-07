@@ -274,6 +274,17 @@ button:active {
 /* ** end button */
 /* * end form */
 /* end Calculator */
+/* begin About */
+#about {
+  background: var(--blue-dark);
+  padding-bottom: 3rem;
+}
+
+#about p {
+  margin: 0.5rem auto;
+  max-width: 60ch;
+}
+/* end About */
 
 /* end specific styling */
 
