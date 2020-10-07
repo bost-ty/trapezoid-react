@@ -1,3 +1,4 @@
+/* begin general styling */
 *,
 *::after,
 *::before {
@@ -6,86 +7,116 @@
   padding: 0;
 }
 
-:root {
-  --champagne-pink: #eddcd2ff;
-  --linen: #fff1e6ff;
-  --pale-pink: #fde2e4ff;
-  --mimi-pink: #fad2e1ff;
-  --powder-blue: #c5deddff;
-  --mint-cream: #dbe7e4ff;
-  --isabelline: #f0efebff;
-  --beau-blue: #bcd4e6ff;
+::selection {
+  background: var(--brand);
+}
 
-  --text-dark: #222222;
-  --text-light: #444444;
+:root {
+  --brand: rgb(238, 221, 211);
+  --rgb-brand: 238, 221, 211;
+
+  --blue-dark: rgb(188, 212, 230);
+  --rgb-blue-dark: 188, 212, 230;
+
+  --blue-light: rgb(240, 245, 249);
+  --rgb-blue-light: 240, 245, 249;
+
+  --light: rgba(240, 239, 235);
+  --rgb-light: 240, 239, 235;
+
+  --text-dark: rgb(34, 34, 34);
+  --rgb-text-dark: 34, 34, 34;
+
+  --text-light: rgb(102, 102, 102);
+  --rgb-text-light: 102, 102, 102;
 }
 
 .App {
-  padding: 2.5rem;
-  background: var(--beau-blue);
+  background: var(--blue-light);
   color: var(--dark-a);
-  line-height: 1.5;
+  text-align: center;
+  font-size: 1.2rem;
+  font-family: "Roboto", sans-serif;
 }
-
-/* start links */
+/* begin links */
 a {
+  display: flex;
   outline: none;
   text-decoration: none;
-  border: 1px solid rgba(0, 0, 0, 0);
-  display: flex;
+  border-radius: 0.5em;
+  border: none;
+  border-bottom: 2px solid transparent;
+  transform: translateY(2px);
+  transition: all 100ms ease-out;
 }
 
 a:link {
-  color: var(--text-light);
+  color: var(--text-dark);
 }
 
 a:visited {
-  color: var(--pale-pink);
+  color: var(--text-light);
 }
 
 a:focus {
-  border-bottom: 1px solid;
-  outline: 1px dotted var(--text-light);
-  background: var(--isabelline);
-  color: var(--text-dark);
+  outline: 1px dashed var(--text-light);
+  border-bottom: 2px solid;
+  background: var(--blue-light);
+  color: var(--text-light);
+  transform: translateY(0);
 }
 
 a:hover {
-  border-bottom: 1px solid;
-  background: var(--isabelline);
-  color: var(--text-dark);
+  border-bottom: 2px solid;
+  background: var(--blue-light);
+  color: var(--text-light);
+  transform: translateY(0);
 }
 
 a:active {
-  background: var(--text-dark);
-  color: var(--isabelline);
+  outline: none;
+  background: var(--brand);
+  color: var(--text-light);
+  transform: translateY(2px);
 }
 /* end links */
+/* begin typography */
+h1,
+h2,
+h3 {
+  font-family: "Roboto Mono", source-code-pro, Menlo, Monaco, Consolas,
+    "Courier New", monospace;
+  padding: 0.25em;
+}
+/* end typography */
+/* end general styling */
 
-/* begin header */
+/* begin specific styling */
+/* begin Header */
+
+.fa-calc {
+  font-size: 2rem;
+}
 header {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-flow: column nowrap;
   gap: 0.4rem;
-  text-align: center;
+  padding: 1rem;
+  background: var(--blue-dark);
+  width: 100%;
 }
-
 header h1 {
+  font-size: clamp(1rem, 2.2rem * 3vh, 6rem);
   margin: 0;
-  padding: 0;
-  font-size: 2.4rem;
-  line-height: 1.2;
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  background-color: var(--brand);
+  border-radius: 0.25em;
 }
-
 header p {
   font-size: 1.2rem;
   line-height: 1;
 }
-
 header ul {
   display: flex;
   flex-flow: row nowrap;
@@ -100,9 +131,83 @@ header li {
   margin: 0;
   padding: 0;
 }
-
 header a {
-  font-size: 2.4rem;
+  font-size: 2rem;
   padding: 0.25em;
 }
-/* end header */
+/* end Header */
+/* begin Calculator */
+/* * begin form */
+form {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+label,
+input,
+button {
+  display: block;
+}
+
+label {
+  margin-top: 0.5rem;
+}
+
+/* ** begin input */
+input {
+  margin-bottom: 1rem;
+  border: 1px solid rgba(var(--rgb-brand), 1);
+  border-radius: 2px;
+  padding-left: 5px;
+  background: rgba(var(--rgb-brand), 0.5);
+  outline: none;
+  min-width: 0;
+}
+
+input:focus {
+  border: 1px solid var(--text-light);
+  background: var(--blue-light);
+}
+/* ** end input */
+/* ** begin button */
+button {
+  display: flex;
+  outline: none;
+  text-decoration: none;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  border: none;
+  border-bottom: 2px solid transparent;
+  transform: translateY(2px);
+  transition: all 100ms ease-out;
+}
+
+button:focus {
+  outline: 1px dashed var(--text-light);
+  border-bottom: 2px solid;
+  background: var(--blue-light);
+  color: var(--text-light);
+  transform: translateY(0);
+}
+
+button:hover {
+  border-bottom: 2px solid;
+  background: var(--blue-light);
+  color: var(--text-light);
+  transform: translateY(0);
+}
+
+button:active {
+  outline: 0 none;
+  background: var(--brand);
+  color: var(--text-light);
+  transform: translateY(2px);
+}
+/* ** end button */
+/* * end form */
+/* end Calculator */
+
+/* end specific styling */
