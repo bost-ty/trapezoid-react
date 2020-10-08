@@ -1,10 +1,11 @@
 import React from "react";
 
 export default function About({ showAbout }) {
+	const isHiddenClass = showAbout ? null : "hidden";
 	return (
 		<>
-			<div id="overlay" aria-hidden="true"></div>
-			<article id="about" className={showAbout ? null : "hidden"} aria-hidden={!showAbout}>
+			<div id="overlay" className={isHiddenClass} aria-hidden="true"></div>
+			<article id="about" className={isHiddenClass} aria-hidden={!showAbout}>
 				<h2>About</h2>
 				<p>
 					This project is a continuation of a Python program written for a woodworking project. It
