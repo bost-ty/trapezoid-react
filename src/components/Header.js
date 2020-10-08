@@ -4,7 +4,7 @@ import { FaGithub, FaQuestionCircle } from "react-icons/fa";
 export default function Header({ toggleHidden }) {
   return (
     <header>
-      <h1>trapezoid.jsx</h1>
+      <h1>trapezoid-react</h1>
       <p>a small app for calculating neat trapezoids</p>
       <ul>
         <li>
