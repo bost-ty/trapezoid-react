@@ -44,7 +44,6 @@
 	text-align: center;
 	font-size: 1.2rem;
 	font-family: "Roboto", sans-serif;
-	position: relative;
 }
 /* begin links */
 a {
@@ -260,7 +259,7 @@ input:active {
 .form-control-container {
 	display: flex;
 	align-items: center;
-	justify-content: space-evenly;
+	justify-content: center;
 	gap: 1rem;
 	min-width: 20vw;
 	background: var(--blue-dark);
@@ -320,10 +319,8 @@ button:active {
 	font-size: 1.1rem;
 	background: var(--brand);
 	border-radius: 1.5rem;
-	padding: 0.25rem 0.75rem 0.75rem 0.75rem;
-
+	padding: 0.25rem 0.75rem 1rem 0.75rem;
 	width: clamp(250px, 80vw, 60ch);
-
 	transition: all 100ms ease-out;
 	position: absolute;
 	left: 50%;
@@ -332,6 +329,7 @@ button:active {
 	visibility: visible;
 	margin: 0;
 	box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+	cursor: pointer;
 }
 
 #about.hidden {
@@ -340,12 +338,11 @@ button:active {
 }
 
 #about:not(.hidden) {
-	z-index: 1;
+	z-index: 2;
 }
 
 #overlay {
-	display: none;
-	visibility: hidden;
+	z-index: 1;
 	position: fixed;
 	width: 100%;
 	height: 100%;
@@ -354,13 +351,7 @@ button:active {
 	right: 0;
 	bottom: 0;
 	cursor: pointer;
+	background: rgba(var(--rgb-brand), 0.25);
 }
 /* end About */
 /* end specific styling */
-
-/* handle narrow viewport cases */
-@media screen and (max-width: 350px) {
-	:root {
-		font-size: 14px;
-	}
-}
